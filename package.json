@@ -4,16 +4,34 @@
     "private": true,
     "homepage": "https://kariemGerges.github.io/ecommerce-frontend-admin",
     "dependencies": {
-        "@tanstack/react-query": "^5.64.1",
+        "@radix-ui/react-avatar": "^1.1.2",
+        "@radix-ui/react-checkbox": "^1.1.3",
+        "@radix-ui/react-dialog": "^1.1.5",
+        "@radix-ui/react-popover": "^1.1.5",
+        "@radix-ui/react-radio-group": "^1.2.2",
+        "@radix-ui/react-scroll-area": "^1.2.2",
+        "@radix-ui/react-select": "^2.1.5",
+        "@radix-ui/react-slot": "^1.1.1",
+        "@radix-ui/react-switch": "^1.1.2",
+        "@radix-ui/react-tabs": "^1.1.2",
+        "@radix-ui/react-tooltip": "^1.1.7",
+        "@tanstack/react-query": "^5.65.0",
         "@tanstack/react-query-devtools": "^5.64.1",
         "axios": "^1.7.9",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
         "cra-template": "1.2.0",
+        "framer-motion": "^12.0.6",
         "lucide-react": "^0.469.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
         "react-lazy-load-image-component": "^1.6.3",
         "react-router-dom": "^7.1.1",
         "react-scripts": "^5.0.1",
+        "shadcn-ui": "^0.9.4",
+        "styled-components": "^6.1.14",
+        "tailwind-merge": "^3.0.1",
+        "tailwindcss-animate": "^1.0.7",
         "web-vitals": "^4.2.4"
     },
     "scripts": {
@@ -45,7 +63,7 @@
     "devDependencies": {
         "autoprefixer": "^10.4.20",
         "gh-pages": "^6.3.0",
-        "postcss": "^8.4.49",
+        "postcss": "^8.5.1",
         "tailwindcss": "^3.4.17"
     }
 }

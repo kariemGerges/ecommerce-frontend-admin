@@ -1,0 +1,56 @@
+.equation-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #f0f0f0;
+    overflow: hidden;
+}
+
+.floating-equation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 100px;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.1));
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(-50%, -50%) rotate(-2deg);
+    }
+    50% {
+        transform: translate(-50%, -55%) rotate(2deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(-2deg);
+    }
+}
+
+.floating-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.particle {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.1);
+    animation: particle-float 10s infinite linear;
+}
+
+@keyframes particle-float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
