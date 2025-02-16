@@ -9,10 +9,13 @@ const Logo = () => {
             aria-label="FreshMart Home"
         >
             <div className="font-bold text-3xl">
-                <span className="text-emerald-600 dark:text-emerald-400">
-                    Pickup
+                <span className="text-emerald-600 dark:text-emerald-400 font-pacifico">
+                    Pick
                 </span>
-                <span className="text-orange-400 dark:text-orange-300">
+                <span className="text-orange-400 dark:text-orange-300 font-pacifico">
+                    Me&nbsp;
+                </span>
+                <span className="text-stone-500">
                     Dashboard
                 </span>
             </div>

@@ -5,7 +5,7 @@ export const loginAdmin = async (credentials) => {
         const response = await axiosClient.post('/auth/admin', credentials);
         return response.data;
     } catch (error) {
-        throw error;
+        throw error.response.data;
     }
 };
 
@@ -25,6 +25,9 @@ export const getUserProfile = async () => {
         const response = await axiosClient.get(`/auth/profile`);
         return response.data;
     } catch (error) {
-        throw error.response.data;
+        if (error.response && error.response.status === 401) {
+            return null; // Return null for unauthorized users
+        }
+        throw error.response?.data || { message: 'Server error' };
     }
 };

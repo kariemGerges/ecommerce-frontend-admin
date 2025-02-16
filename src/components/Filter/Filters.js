@@ -10,32 +10,44 @@ const OrderFilters = ({ onFilterChange }) => {
         endDate: '',
     });
 
+    // For the status dropdown
     const [selectedStatus, setSelectedStatus] = useState('');
     const [isStatusDropdownOpen, setIsStatusDropdownOpen] = useState(false);
 
     const statusOptions = [
-        { value: 'pending', label: 'Pending' },
-        { value: 'processing', label: 'Processing' },
-        { value: 'completed', label: 'Completed' },
-        { value: 'cancelled', label: 'Cancelled' },
+        { value: 'Pending', label: 'Pending' },
+        { value: 'Ready', label: 'Ready' },
+        { value: 'Processing', label: 'Processing' },
+        { value: 'Completed', label: 'Completed' },
+        { value: 'Cancelled', label: 'Cancelled' },
     ];
 
+    // Update local state only; do not call onFilterChange here.
     const handleFilterChange = (name, value) => {
-        const newFilters = { ...filters, [name]: value };
-        setFilters(newFilters);
-        onFilterChange(newFilters);
+        setFilters((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
     };
 
+    // Clears the filters and resets local state
     const clearFilters = () => {
-        const clearedFilters = {
+        const cleared = {
             status: '',
             userId: '',
             startDate: '',
             endDate: '',
         };
-        setFilters(clearedFilters);
+        setFilters(cleared);
         setSelectedStatus('');
-        onFilterChange(clearedFilters);
+        // Optionally notify the parent that filters are cleared,
+        // or keep it so the user must click Apply again.
+        // onFilterChange(cleared);
+    };
+
+    // Actually apply filters (notify parent) only when user clicks "Apply"
+    const applyFilters = () => {
+        onFilterChange(filters);
     };
 
     return (
@@ -179,7 +191,7 @@ const OrderFilters = ({ onFilterChange }) => {
                             Clear Filters
                         </button>
                         <button
-                            onClick={() => onFilterChange(filters)}
+                            onClick={applyFilters}
                             className="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm hover:bg-purple-700 transition-colors"
                         >
                             Apply Filters

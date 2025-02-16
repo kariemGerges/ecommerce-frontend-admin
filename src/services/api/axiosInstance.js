@@ -2,8 +2,8 @@ import axios from 'axios';
 
 // You might store this in .env, e.g. process.env.REACT_APP_API_BASE_URL
 const axiosClient = axios.create({
-    baseURL: 'http://localhost:3000',
-    // baseURL: 'https://ecommerce-backend-8xv8.onrender.com',
+    // baseURL: 'http://localhost:3000',
+    baseURL: 'https://ecommerce-backend-8xv8.onrender.com',
     withCredentials: true,
 });
 

@@ -10,31 +10,32 @@ export const AuthLoginProvider = ({ children }) => {
     const [user, setUser] = useState(null); // Store authenticated user
     const [loading, setLoading] = useState(true); // Loading state for profile check
 
-    // Fetch the user profile on app load
-    // that what it looks like before
-    // const { data, isError, isLoading, refetch } = useQuery({
     const { refetch } = useQuery({
-        queryKey: ['userProfile'], // unique query key
-        queryFn: getUserProfile, // function to fetch user profile
+        queryKey: ['userProfile'], // Unique query key
+        queryFn: async () => {
+            const data = await getUserProfile();
+            return data;
+        },
         onSuccess: (data) => {
             setUser(data); // Set user state when profile is fetched
         },
         onError: () => {
             setUser(null); // Reset user if not authenticated
         },
-        retry: false, // Prevent endless retries on failure
+        retry: false,
         enabled: false, // Disabled initially; manually triggered
     });
 
     useEffect(() => {
-        // Check user profile on initial load
         const checkAuth = async () => {
             try {
-                await refetch(); // Fetch user profile
+                const { data } = await refetch(); // Fetch user profile
+                setUser(data || null); // Update user state
             } catch (error) {
                 console.error('Auth check error:', error);
+                setUser(null);
             } finally {
-                setLoading(false); // Stop loading once check completes
+                setLoading(false);
             }
         };
 
